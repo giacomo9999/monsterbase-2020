@@ -3,18 +3,18 @@ import React, { Component } from "react";
 import {
   Button,
   Container,
-  Divider,
-  Grid,
   Header,
   Icon,
   Image,
-  List,
   Menu,
   Responsive,
-  Segment,
-  Sidebar,
-  Visibility
+  Segment
 } from "semantic-ui-react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
+import Create from "./components/create.component";
+import Index from "./components/index.component";
+import Edit from "./components/edit.component";
 
 /* eslint-disable react/no-multi-comp */
 /* Heads up! HomepageHeading uses inline styling, however it's not the best practice. Use CSS or styled components for
@@ -22,20 +22,19 @@ import {
  */
 const HomepageHeading = ({ mobile }) => (
   <Container text>
-    <Header
-      as="h1"
-      content="MONSTERBASE"
-      inverted
+    <Image
+      src="/logo.png"
+      size="small"
+      centered
       style={{
-        fontSize: mobile ? "2em" : "4em",
-        fontWeight: "normal",
-        marginBottom: 0,
+        marginBottom: "2em",
         marginTop: mobile ? "1.5em" : "3em"
       }}
     />
+
     <Header
       as="h5"
-      content="Create Random Encounter Tables For Your D&D World"
+      content="Custom Encounter Tables For Your D&D World"
       inverted
       style={{
         fontSize: mobile ? "1em" : "1em",
@@ -43,7 +42,14 @@ const HomepageHeading = ({ mobile }) => (
         marginTop: mobile ? "0.5em" : ".25em"
       }}
     />
-    <Button primary size="huge">
+    <Button
+      primary
+      size="small"
+      style={{
+        marginBottom: "2em",
+        marginTop: mobile ? "1.5em" : "1.5em"
+      }}
+    >
       Get Started
       <Icon name="right arrow" />
     </Button>
@@ -69,46 +75,58 @@ class DesktopContainer extends Component {
     const { fixed } = this.state;
 
     return (
-      <Responsive minWidth={Responsive.onlyTablet.minWidth}>
-        <Segment
-          inverted
-          textAlign="center"
-          style={{ minHeight: 800, padding: "1em 0em" }}
-          vertical
-        >
-          <Menu
-            fixed={fixed ? "top" : null}
-            inverted={!fixed}
-            pointing={!fixed}
-            secondary={!fixed}
-            size="large"
+      <Router>
+        <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+          <Segment
+            inverted
+            textAlign="center"
+            style={{ minHeight: 800, padding: "1em 0em" }}
+            vertical
           >
-            <Container>
-              <Menu.Item as="a" active>
-                Home
-              </Menu.Item>
-              <Menu.Item as="a">Create</Menu.Item>
-              <Menu.Item as="a">Index</Menu.Item>
-              <Menu.Item position="right">
-                <Button as="a" inverted={!fixed}>
-                  Log in
-                </Button>
-                <Button
-                  as="a"
-                  inverted={!fixed}
-                  primary={fixed}
-                  style={{ marginLeft: "0.5em" }}
-                >
-                  Sign Up
-                </Button>
-              </Menu.Item>
-            </Container>
-          </Menu>
-          <HomepageHeading />
-        </Segment>
+            <Menu
+              fixed={fixed ? "top" : null}
+              inverted={!fixed}
+              pointing={!fixed}
+              secondary={!fixed}
+              size="large"
+            >
+              <Container>
+                <Menu.Item as={Link} to="/" active>
+                  Home
+                </Menu.Item>
+                <Menu.Item as={Link} to="/create">
+                  Create
+                </Menu.Item>
+                <Menu.Item as={Link} to="/index">
+                  Index
+                </Menu.Item>
+                <Menu.Item position="right">
+                  <Button as="a" inverted={!fixed}>
+                    Log in
+                  </Button>
+                  <Button
+                    as="a"
+                    inverted={!fixed}
+                    primary={fixed}
+                    style={{ marginLeft: "0.5em" }}
+                  >
+                    Sign Up
+                  </Button>
+                </Menu.Item>
+                
+              </Container>
+            </Menu>
+            <HomepageHeading />
+            <Switch>
+                  <Route exact path="/create" component={Create} />
+                  <Route path="/edit/:id" component={Edit} />
+                  <Route path="/index" component={Index} />
+                </Switch>
+          </Segment>
 
-        {/* {children} */}
-      </Responsive>
+          {/* {children} */}
+        </Responsive>
+      </Router>
     );
   }
 }
