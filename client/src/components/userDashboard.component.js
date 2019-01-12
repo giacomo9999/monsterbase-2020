@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 // import TableRow from "./TableRow";
 
-export default class Index extends Component {
+export default class UserDashboard extends Component {
   constructor(props) {
     super(props);
     this.state = { business: [] };
@@ -28,7 +28,7 @@ export default class Index extends Component {
   render() {
     return (
       <div>
-        <h3 align="center">Business List</h3>
+        <h3 align="center">Encounter Tables</h3>
         <table className="table table-striped" style={{ marginTop: 20 }}>
           <thead>
             <tr>

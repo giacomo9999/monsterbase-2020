@@ -8,3 +8,5 @@ So then, right now I need to:
 
 10 Jan - All the basic blocks are in place.  Getting ready to start shfting to Semantic.
 
+11 Jan - Moved some components to Semantic.
+

@@ -13,7 +13,7 @@ import {
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import Create from "./components/create.component";
-import Index from "./components/index.component";
+import UserDashboard from "./components/userDashboard.component";
 import Edit from "./components/edit.component";
 
 /* eslint-disable react/no-multi-comp */
@@ -97,8 +97,8 @@ class DesktopContainer extends Component {
                 <Menu.Item as={Link} to="/create">
                   Create
                 </Menu.Item>
-                <Menu.Item as={Link} to="/index">
-                  Index
+                <Menu.Item as={Link} to="/userDashboard">
+                  User Dashboard 
                 </Menu.Item>
                 <Menu.Item position="right">
                   <Button as="a" inverted={!fixed}>
@@ -113,15 +113,15 @@ class DesktopContainer extends Component {
                     Sign Up
                   </Button>
                 </Menu.Item>
-                
               </Container>
             </Menu>
-            <HomepageHeading />
+            {/* <HomepageHeading /> */}
             <Switch>
-                  <Route exact path="/create" component={Create} />
-                  <Route path="/edit/:id" component={Edit} />
-                  <Route path="/index" component={Index} />
-                </Switch>
+              <Route exact path="/" component={HomepageHeading} />
+              <Route exact path="/create" component={Create} />
+              <Route path="/edit/:id" component={Edit} />
+              <Route path="/userDashboard" component={UserDashboard} />
+            </Switch>
           </Segment>
 
           {/* {children} */}
