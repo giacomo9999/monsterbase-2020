@@ -19,27 +19,16 @@ export default class UserDashboard extends Component {
       });
   }
 
-//   tabRow() {
-//     return this.state.business.map(function(object, i) {
-//       return <TableRow obj={object} key={i} />;
-//     });
-//   }
+  //   tabRow() {
+  //     return this.state.business.map(function(object, i) {
+  //       return <TableRow obj={object} key={i} />;
+  //     });
+  //   }
 
   render() {
     return (
-      <div>
+      <div className="ui three column centered grid">
         <h3 align="center">Encounter Tables</h3>
-        <table className="table table-striped" style={{ marginTop: 20 }}>
-          <thead>
-            <tr>
-              <th>Person</th>
-              <th>Business</th>
-              <th>GST Number</th>
-              <th colSpan="2">Action</th>
-            </tr>
-          </thead>
-          {/* <tbody>{this.tabRow()}</tbody> */}
-        </table>
       </div>
     );
   }

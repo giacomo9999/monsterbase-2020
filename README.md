@@ -10,3 +10,6 @@ So then, right now I need to:
 
 11 Jan - Moved some components to Semantic.
 
+12 Jan - Everything seems to be going smoothly. Building out React components for the front end.
+
+
