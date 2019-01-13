@@ -28,7 +28,7 @@ export default class UserDashboard extends Component {
       <div className="ui three column centered grid">
         <div className='column'>
         <EditableTableList />
-        <ToggleableTableForm isOpen={true}/>
+        <ToggleableTableForm isOpen={false}/>
         </div>
       </div>
     );

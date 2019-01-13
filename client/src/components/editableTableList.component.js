@@ -9,7 +9,7 @@ export default class EditableTableList extends Component {
         <EditableTable region="Scarab Mound, Level 3" editFormOpen={true} />
         <EditableTable
           region="Plain of the Standing Stones"
-          editFormOpen={true}
+          editFormOpen={false}
         />
       </div>
     );
