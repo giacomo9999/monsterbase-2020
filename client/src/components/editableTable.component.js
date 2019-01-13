@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import TableForm from "./tableForm.component";
+import Table from "./table.component";
 
 export default class EditableTable extends Component {
-    render() {
-        return (
-            <div>
-                <p>Editable Table Here</p>
-            </div>
-        )
+  render() {
+    if (this.props.editFormOpen) {
+      return <TableForm region={this.props.region} />;
+    } else {
+      return <Table region={this.props.region} />;
     }
+  }
 }
