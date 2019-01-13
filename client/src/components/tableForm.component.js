@@ -8,8 +8,9 @@ export default class TableForm extends Component {
       <div>
         <Card centered>
           <Card.Content>
-            <Card.Header>{this.props.region}</Card.Header>
-            <br />
+            <div className="ui blue basic inverted center aligned segment">
+              <h4>{this.props.region}</h4>
+            </div>
             <div className="ui form">
               <div className="field">
                 <label>Region Name</label>
@@ -19,8 +20,12 @@ export default class TableForm extends Component {
           </Card.Content>
           <Card.Content extra>
             <div className="ui compact two buttons">
-              <Button primary>{submitText}</Button>
-              <Button secondary>Cancel</Button>
+              <Button basic color="grey">
+                {submitText}
+              </Button>
+              <Button basic color="grey">
+                Cancel
+              </Button>
             </div>
           </Card.Content>
         </Card>
