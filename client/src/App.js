@@ -13,6 +13,8 @@ import {
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import UserDashboard from "./components/userDashboard.component";
+import SignInForm from "./components/signInForm.component";
+import SignUpForm from "./components/signUpForm.component";
 
 /* eslint-disable react/no-multi-comp */
 /* Heads up! HomepageHeading uses inline styling, however it's not the best practice. Use CSS or styled components for
@@ -43,6 +45,8 @@ const HomepageHeading = ({ mobile }) => (
     <Button
       primary
       size="small"
+      as={Link}
+      to="/userDashboard"
       style={{
         marginBottom: "2em",
         marginTop: mobile ? "1.5em" : "1.5em"
@@ -50,6 +54,7 @@ const HomepageHeading = ({ mobile }) => (
     >
       Get Started
       <Icon name="right arrow" />
+      <Route path="/userDashboard" component={UserDashboard} />
     </Button>
   </Container>
 );
@@ -89,11 +94,13 @@ class DesktopContainer extends Component {
               size="large"
             >
               <Container>
-                
+                <Menu.Item position="left">
+                  <h5>MONSTERBASE LOGO</h5>
+                </Menu.Item>
                 <Menu.Item position="right">
                   <Button
                     as={Link}
-                    to="/userDashboard"
+                    to="/signInForm"
                     inverted={!fixed}
                     primary={fixed}
                     style={{ marginLeft: "0.5em" }}
@@ -101,7 +108,8 @@ class DesktopContainer extends Component {
                     Log in
                   </Button>
                   <Button
-                    as="a"
+                    as={Link}
+                    to="/signUpForm"
                     inverted={!fixed}
                     primary={fixed}
                     style={{ marginLeft: "0.5em" }}
@@ -111,14 +119,12 @@ class DesktopContainer extends Component {
                 </Menu.Item>
               </Container>
             </Menu>
-            {/* <HomepageHeading /> */}
             <Switch>
               <Route exact path="/" component={HomepageHeading} />
-              <Route path="/userDashboard" component={UserDashboard} />
+              <Route path="/signInForm" component={SignInForm} />
+              <Route path="/signUpForm" component={SignUpForm} />
             </Switch>
           </Segment>
-
-          {/* {children} */}
         </Responsive>
       </Router>
     );
