@@ -54,7 +54,7 @@ const HomepageHeading = ({ mobile }) => (
     >
       Get Started
       <Icon name="right arrow" />
-      <Route path="/userDashboard" component={UserDashboard} />
+      {/* <Route path="/userDashboard" component={UserDashboard} /> */}
     </Button>
   </Container>
 );
@@ -94,7 +94,7 @@ class DesktopContainer extends Component {
               size="large"
             >
               <Container>
-                <Menu.Item position="left">
+                <Menu.Item position="left" as={Link} to="/">
                   <h5>MONSTERBASE LOGO</h5>
                 </Menu.Item>
                 <Menu.Item position="right">
@@ -121,6 +121,7 @@ class DesktopContainer extends Component {
             </Menu>
             <Switch>
               <Route exact path="/" component={HomepageHeading} />
+              <Route path="/userDashboard" component={UserDashboard} />
               <Route path="/signInForm" component={SignInForm} />
               <Route path="/signUpForm" component={SignUpForm} />
             </Switch>
