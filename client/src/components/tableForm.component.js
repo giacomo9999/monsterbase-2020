@@ -2,16 +2,44 @@ import React, { Component } from "react";
 import { Button, Card, Header } from "semantic-ui-react";
 
 export default class TableForm extends Component {
+  state = {
+    regionName: this.props.regionName || "",
+    regionType: this.props.regionType || "",
+    regionDifficulty: this.props.regionDifficulty || ""
+  };
+
+  handleRegionNameChange = e => {
+    this.setState({ regionName: e.target.value });
+  };
+
+  handleRegionTypeChange = e => {
+    this.setState({ regionType: e.target.value });
+  };
+
+  handleRegionDifficultyChange = e => {
+    this.setState({ regionDifficulty: e.target.value });
+  };
+
+  handleSubmit = () => {
+    this.props.onFormSubmit({
+      id: this.props.id,
+      regionName: this.state.regionName,
+      regionType: this.props.regionType,
+      regionDifficulty: this.props.regionDifficulty
+    });
+  };
+
   render() {
-    const submitText = this.props.regionName ? "Update" : "Create";
+    console.log(this.props);
+    const submitText = this.props.id ? "Update" : "Create";
     return (
       <Card centered>
         <Card.Content>
-          <div className="ui blue basic inverted  segment">
+          <div className="ui blue basic inverted segment">
             <Header
               as="h3"
-              content={this.props.regionName || "New Region"}
-              subheader={this.props.regionType}
+              content={this.state.regionName || "New Region"}
+              subheader={this.state.regionType}
             />
           </div>
           <div className="ui form">
@@ -19,33 +47,34 @@ export default class TableForm extends Component {
               <label>Region Name</label>
               <input
                 type="text"
-                defaultValue={this.props.regionName || "enter name here"}
+                value={this.state.regionName}
+                onChange={this.handleRegionNameChange}
               />
             </div>
             <div className="field">
               <label>Type</label>
               <input
                 type="text"
-                defaultValue={this.props.regionType || "enter type here"}
+                value={this.state.regionType}
+                onChange={this.handleRegionTypeChange}
               />
             </div>
             <div className="field">
               <label>Difficulty</label>
               <input
                 type="text"
-                defaultValue={
-                  this.props.regionDifficulty || "enter difficulty here"
-                }
+                value={this.state.regionDifficulty}
+                onChange={this.handleRegionDifficultyChange}
               />
             </div>
           </div>
         </Card.Content>
         <Card.Content extra>
           <div className="ui compact two buttons">
-            <Button basic color="grey">
+            <Button basic color="grey" onClick={this.handleSubmit}>
               {submitText}
             </Button>
-            <Button basic color="grey">
+            <Button basic color="grey" onClick={this.props.onFormClose}>
               Cancel
             </Button>
           </div>

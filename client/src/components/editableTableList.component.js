@@ -4,21 +4,16 @@ import EditableTable from "./editableTable.component";
 
 export default class EditableTableList extends Component {
   render() {
-    return (
-      <div id="lists">
-        <EditableTable
-          regionName="Scarab Mound, Level 3"
-          regionType="Dungeon Level"
-          regionDifficulty="3"
-          editFormOpen={true}
-        />
-        <EditableTable
-          regionName="Plain of the Standing Stones"
-          regionType="Desert"
-          regionDifficulty="1"
-          editFormOpen={false}
-        />
-      </div>
-    );
+    const tables = this.props.tables.map(table => (
+      <EditableTable
+        key={table.id}
+        id={table.id}
+        regionName={table.regionName}
+        regionType={table.regionType}
+        regionDifficulty={table.regionDifficulty}
+        regionTable={table.regionTable}
+      />
+    ));
+    return <div id="tables">{tables}</div>;
   }
 }

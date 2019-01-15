@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Header, Segment } from "semantic-ui-react";
+import { Card, Header } from "semantic-ui-react";
 
 export default class Table extends Component {
   render() {
