@@ -1,21 +1,41 @@
 import React, { Component } from "react";
-import { Button, Card } from "semantic-ui-react";
+import { Button, Card, Header } from "semantic-ui-react";
 
 export default class TableForm extends Component {
   render() {
-    const submitText = this.props.region ? "Update" : "Create";
+    const submitText = this.props.regionName ? "Update" : "Create";
     return (
       <Card centered>
         <Card.Content>
-          <div className="ui blue basic inverted center aligned segment">
-            <h4>{this.props.region || "New Region"}</h4>
+          <div className="ui blue basic inverted  segment">
+            <Header
+              as="h3"
+              content={this.props.regionName || "New Region"}
+              subheader={this.props.regionType}
+            />
           </div>
           <div className="ui form">
             <div className="field">
               <label>Region Name</label>
               <input
                 type="text"
-                defaultValue={this.props.region || "enter name here"}
+                defaultValue={this.props.regionName || "enter name here"}
+              />
+            </div>
+            <div className="field">
+              <label>Type</label>
+              <input
+                type="text"
+                defaultValue={this.props.regionType || "enter type here"}
+              />
+            </div>
+            <div className="field">
+              <label>Difficulty</label>
+              <input
+                type="text"
+                defaultValue={
+                  this.props.regionDifficulty || "enter difficulty here"
+                }
               />
             </div>
           </div>

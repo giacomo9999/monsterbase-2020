@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import EditableTableList from "./editableTableList.component";
 import ToggleableTableForm from "./toggleableTableForm.component";
+import monsterTable from "./monsterDataBase";
 
 export default class UserDashboard extends Component {
   constructor(props) {
@@ -10,6 +11,8 @@ export default class UserDashboard extends Component {
       encTables: [
         {
           regionName: "Plain Of The Standing Stones",
+          regionType: "Desert",
+          regionDifficulty: 2,
           regionTable: [
             [4, "Scorpion(Large)"],
             [9, "Pilgrim"],
@@ -20,6 +23,8 @@ export default class UserDashboard extends Component {
         },
         {
           regionName: "Scarab Mound - Level 3",
+          regionType: "Dungeon Level",
+          regionDifficulty: 3,
           regionTable: [
             [3, "Bugbear"],
             [7, "Ogre"],
@@ -46,11 +51,12 @@ export default class UserDashboard extends Component {
   // }
 
   render() {
+    console.log(monsterTable);
     return (
       <div className="ui three column centered grid">
         <div className="column">
           <EditableTableList />
-          <ToggleableTableForm isOpen={true} />
+          <ToggleableTableForm isOpen={false} />
         </div>
       </div>
     );
