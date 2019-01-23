@@ -1,3 +1,5 @@
+// Child of ToggleableTableForm
+
 import React, { Component } from "react";
 import { Button, Card, Header } from "semantic-ui-react";
 
@@ -21,6 +23,7 @@ export default class TableForm extends Component {
   };
 
   handleSubmit = () => {
+    console.log("TableForm submitting table for "+this.state.regionName)
     this.props.onFormSubmit({
       id: this.props.id,
       regionName: this.state.regionName,
@@ -30,7 +33,6 @@ export default class TableForm extends Component {
   };
 
   render() {
-    console.log(this.props);
     const submitText = this.props.id ? "Update" : "Create";
     return (
       <Card centered>

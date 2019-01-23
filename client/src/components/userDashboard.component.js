@@ -5,7 +5,7 @@ import React, { Component } from "react";
 // import axios from "axios";
 import EditableTableList from "./editableTableList.component";
 import ToggleableTableForm from "./toggleableTableForm.component";
-import monsterTable from "./monsterDataBase";
+// import monsterTable from "./monsterDataBase";
 const uuidv1 = require("uuid/v1");
 
 export default class UserDashboard extends Component {
@@ -54,7 +54,14 @@ export default class UserDashboard extends Component {
   // }
 
   handleCreateFormSubmit = table => {
-    this.createNewTable(table);
+    console.log("UserDashboard creating new table for " + table.regionName);
+    const newTable = this.createNewTable(table);
+    console.log(newTable);
+    const revState = this.state.encTables.concat(newTable);
+    console.log(revState);
+    this.setState({blah:"blah"})
+    // this.setState({ encTables: revState });
+    console.log(this.state);
   };
 
   // Create new table - invoked by handleCreateFormSubmit
@@ -69,12 +76,15 @@ export default class UserDashboard extends Component {
   };
 
   render() {
-    console.log(monsterTable);
+    // console.log(monsterTable);
     return (
       <div className="ui three column centered grid">
         <div className="column">
           <EditableTableList tables={this.state.encTables} />
-          <ToggleableTableForm isOpen={false} />
+          <ToggleableTableForm
+            isOpen={false}
+            onFormSubmit={this.handleCreateFormSubmit}
+          />
         </div>
       </div>
     );

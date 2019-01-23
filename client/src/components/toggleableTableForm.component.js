@@ -1,4 +1,5 @@
 // Opens and closes to display TableForm
+// child of UserDashboard
 // children: TableForm
 
 import React, { Component } from "react";
@@ -20,6 +21,7 @@ export default class ToggleableTableForm extends Component {
 
   // passed to TableForm; submits table data and closes form
   handleFormSubmit = table => {
+    console.log("TTF handling form submission for "+table.regionName)
     this.props.onFormSubmit(table);
     this.setState({ isOpen: false });
   };
