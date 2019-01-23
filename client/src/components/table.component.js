@@ -1,3 +1,5 @@
+// Child of EditableTable
+
 import React, { Component } from "react";
 import { Card, Header } from "semantic-ui-react";
 
@@ -5,11 +7,6 @@ export default class Table extends Component {
   render() {
     return (
       <Card centered>
-        {/* <Card.Content>
-          <div className="ui blue basic inverted center aligned segment">
-            <h4>{this.props.regionName}</h4>
-          </div>
-        </Card.Content> */}
         <Card.Content>
           <div className="ui blue basic inverted  segment">
             <Header

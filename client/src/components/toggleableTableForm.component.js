@@ -1,3 +1,6 @@
+// Opens and closes to display TableForm
+// children: TableForm
+
 import React, { Component } from "react";
 import { Button } from "semantic-ui-react";
 import TableForm from "./tableForm.component";
@@ -5,14 +8,17 @@ import TableForm from "./tableForm.component";
 export default class ToggleableTableForm extends Component {
   state = { isOpen: false };
 
+  // passed to Button; opens form 
   handleFormOpen = () => {
     this.setState({ isOpen: true });
   };
 
+  // passed to TableForm; closes form
   handleFormClose = () => {
     this.setState({ isOpen: false });
   };
 
+  // passed to TableForm; submits table data and closes form
   handleFormSubmit = table => {
     this.props.onFormSubmit(table);
     this.setState({ isOpen: false });

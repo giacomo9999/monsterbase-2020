@@ -1,5 +1,6 @@
-import React, { Component } from "react";
+// Child of UserDashboard
 
+import React, { Component } from "react";
 import EditableTable from "./editableTable.component";
 
 export default class EditableTableList extends Component {

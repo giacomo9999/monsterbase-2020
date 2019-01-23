@@ -1,3 +1,5 @@
+// Child of EditableTableList
+
 import React, { Component } from "react";
 import TableForm from "./tableForm.component";
 import Table from "./table.component";

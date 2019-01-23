@@ -1,3 +1,6 @@
+// Parent: App
+// Children: EditableTableList, ToggleableTableForm
+
 import React, { Component } from "react";
 // import axios from "axios";
 import EditableTableList from "./editableTableList.component";
@@ -51,21 +54,19 @@ export default class UserDashboard extends Component {
   // }
 
   handleCreateFormSubmit = table => {
-    this.createTable(table);
+    this.createNewTable(table);
   };
 
-  newTable(attrs = {}) {
-    const table = {
-      title: attrs.title || 'Timer',
-      project: attrs.project || 'Project',
-      id: uuid.v4(), // eslint-disable-line no-undef
-      elapsed: 0,
+  // Create new table - invoked by handleCreateFormSubmit
+  createNewTable = (attrs = {}) => {
+    return {
+      title: attrs.regionName || "Table",
+      id: uuidv1(),
+      regionType: attrs.regionType || "Region Type",
+      regionDifficulty: attrs.regionType || 0,
+      regionTable: []
     };
-
-    return table;
-  }
-
-  
+  };
 
   render() {
     console.log(monsterTable);
