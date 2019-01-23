@@ -22,8 +22,9 @@ export default class TableForm extends Component {
     this.setState({ regionDifficulty: e.target.value });
   };
 
+  // uses HandleFormSubmit from ToggleableTableForm
   handleSubmit = () => {
-    console.log("TableForm submitting table for "+this.state.regionName)
+    console.log("TableForm submitting table for " + this.state.regionName);
     this.props.onFormSubmit({
       id: this.props.id,
       regionName: this.state.regionName,

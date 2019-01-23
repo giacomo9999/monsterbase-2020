@@ -9,7 +9,7 @@ import TableForm from "./tableForm.component";
 export default class ToggleableTableForm extends Component {
   state = { isOpen: false };
 
-  // passed to Button; opens form 
+  // passed to Button; opens form
   handleFormOpen = () => {
     this.setState({ isOpen: true });
   };
@@ -21,7 +21,7 @@ export default class ToggleableTableForm extends Component {
 
   // passed to TableForm; submits table data and closes form
   handleFormSubmit = table => {
-    console.log("TTF handling form submission for "+table.regionName)
+    console.log("TTF handling form submission for " + table.regionName);
     this.props.onFormSubmit(table);
     this.setState({ isOpen: false });
   };

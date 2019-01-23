@@ -5,7 +5,6 @@ import "semantic-ui-css/semantic.min.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
-
 ReactDOM.render(
   <BrowserRouter>
     <App />

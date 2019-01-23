@@ -5,6 +5,7 @@ import React, { Component } from "react";
 // import axios from "axios";
 import EditableTableList from "./editableTableList.component";
 import ToggleableTableForm from "./toggleableTableForm.component";
+import { Button } from "semantic-ui-react";
 // import monsterTable from "./monsterDataBase";
 const uuidv1 = require("uuid/v1");
 
@@ -53,15 +54,14 @@ export default class UserDashboard extends Component {
   //     });
   // }
 
+  // passed down as prop to ToggleableTableForm
   handleCreateFormSubmit = table => {
-    console.log("UserDashboard creating new table for " + table.regionName);
-    const newTable = this.createNewTable(table);
-    console.log(newTable);
-    const revState = this.state.encTables.concat(newTable);
-    console.log(revState);
-    this.setState({blah:"blah"})
-    // this.setState({ encTables: revState });
-    console.log(this.state);
+    this.setState({ foo: "bar" });
+    // console.log("UserDashboard creating new table for " + table.regionName);
+    // const newTable = this.createNewTable(table);
+    // console.log("New table: ", newTable);
+    // this.setState({ encTables: this.state.encTables.concat(newTable) });
+    console.log("State: ", this.state);
   };
 
   // Create new table - invoked by handleCreateFormSubmit
@@ -75,8 +75,12 @@ export default class UserDashboard extends Component {
     };
   };
 
+  setStateToFooBar = e => {
+    this.setState({ foo: "bar" });
+    console.log(this.state);
+  };
+
   render() {
-    // console.log(monsterTable);
     return (
       <div className="ui three column centered grid">
         <div className="column">
@@ -85,6 +89,7 @@ export default class UserDashboard extends Component {
             isOpen={false}
             onFormSubmit={this.handleCreateFormSubmit}
           />
+          <Button className="ui button icon" onClick={this.setStateToFooBar} />
         </div>
       </div>
     );
