@@ -2,7 +2,7 @@
 
 import React, { Component } from "react";
 import TableForm from "./tableForm.component";
-import Table from "./table.component";
+import Table from "./regionTable.component";
 
 export default class EditableTable extends Component {
   state = {
