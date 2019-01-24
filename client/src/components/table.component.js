@@ -12,7 +12,9 @@ export default class Table extends Component {
             <Header
               as="h3"
               content={this.props.regionName}
-              subheader={this.props.regionType}
+              subheader={
+                this.props.regionType + "  •  Difficulty " + this.props.regionDifficulty
+              }
             />
           </div>
         </Card.Content>

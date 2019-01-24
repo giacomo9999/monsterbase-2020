@@ -5,7 +5,6 @@ import React, { Component } from "react";
 // import axios from "axios";
 import EditableTableList from "./editableTableList.component";
 import ToggleableTableForm from "./toggleableTableForm.component";
-import { Button } from "semantic-ui-react";
 // import monsterTable from "./monsterDataBase";
 const uuidv1 = require("uuid/v1");
 
@@ -17,7 +16,7 @@ export default class UserDashboard extends Component {
         id: uuidv1(),
         regionType: "Desert",
         regionDifficulty: 2,
-        regionTable: [
+        regionMonstersAndFreq: [
           [4, "Scorpion(Large)"],
           [9, "Pilgrim"],
           [12, "Toad(Poisonous)"],
@@ -30,7 +29,7 @@ export default class UserDashboard extends Component {
         id: uuidv1(),
         regionType: "Dungeon Level",
         regionDifficulty: 3,
-        regionTable: [
+        regionMonstersAndFreq: [
           [3, "Bugbear"],
           [7, "Ogre"],
           [9, "Ochre Jelly"],
@@ -75,7 +74,7 @@ export default class UserDashboard extends Component {
       id: uuidv1(),
       regionType: attrs.regionType || "Region Type",
       regionDifficulty: attrs.regionType || 0,
-      regionTable: []
+      regionMonstersAndFreq: []
     };
   };
 

@@ -13,6 +13,8 @@ export default class EditableTable extends Component {
       return (
         <TableForm
           regionName={this.props.regionName}
+          // do we need ID at this point?
+          id={this.props.id}
           regionType={this.props.regionType}
           regionDifficulty={this.props.regionDifficulty}
         />
@@ -24,7 +26,7 @@ export default class EditableTable extends Component {
           regionName={this.props.regionName}
           regionType={this.props.regionType}
           regionDifficulty={this.props.regionDifficulty}
-          regionTable={this.props.regionTable}
+          regionMonstersAndFreq={this.props.regionMonstersAndFreq}
         />
       );
     }

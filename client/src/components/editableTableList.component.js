@@ -13,7 +13,7 @@ export default class EditableTableList extends Component {
         regionName={table.regionName}
         regionType={table.regionType}
         regionDifficulty={table.regionDifficulty}
-        regionTable={table.regionTable}
+        regionMonstersAndFreq={table.regionMonstersAndFreq}
       />
     ));
     return <div id="tables">{tables}</div>;
