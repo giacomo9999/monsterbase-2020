@@ -59,6 +59,7 @@ export default class UserDashboard extends Component {
     console.log("UserDashboard creating new table for " + table.regionName);
     const newTable = this.createNewTable(table);
     console.log("New table: ", newTable);
+    // added a callback to setState- so it logs the state *after* state updates.
     this.setState(
       { encTables: this.state.encTables.concat(newTable) },
       function() {
@@ -70,21 +71,12 @@ export default class UserDashboard extends Component {
   // Create new table - invoked by handleCreateFormSubmit
   createNewTable = (attrs = {}) => {
     return {
-      title: attrs.regionName || "Table",
+      regionName: attrs.regionName || "Table",
       id: uuidv1(),
       regionType: attrs.regionType || "Region Type",
       regionDifficulty: attrs.regionType || 0,
       regionTable: []
     };
-  };
-
-  setStateToFooBar = e => {
-    // this.setState({ foo: "bar" });
-    console.log("Setting state to Foo:Bar");
-    console.log("Event target", e.target);
-    this.setState({ foo: "bar" }, function() {
-      console.log(this.state);
-    });
   };
 
   render() {
@@ -97,7 +89,6 @@ export default class UserDashboard extends Component {
             isOpen={false}
             onFormSubmit={this.handleCreateFormSubmit}
           />
-          <Button className="ui button icon" onClick={this.setStateToFooBar} />
         </div>
       </div>
     );

@@ -5,6 +5,7 @@ import EditableTable from "./editableTable.component";
 
 export default class EditableTableList extends Component {
   render() {
+    console.log("ETL - this.props.tables:",this.props.tables);
     const tables = this.props.tables.map(table => (
       <EditableTable
         key={table.id}
