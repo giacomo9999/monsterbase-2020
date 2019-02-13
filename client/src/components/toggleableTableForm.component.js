@@ -11,11 +11,13 @@ export default class ToggleableTableForm extends Component {
 
   // passed to Button; opens form
   handleFormOpen = () => {
+    console.log("TTF opening form.");
     this.setState({ isOpen: true });
   };
 
   // passed to TableForm; closes form
   handleFormClose = () => {
+    console.log("TTF closing form.");
     this.setState({ isOpen: false });
   };
 

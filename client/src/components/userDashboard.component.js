@@ -2,7 +2,7 @@
 // Children: EditableTableList, ToggleableTableForm
 
 import React, { Component } from "react";
-// import axios from "axios";
+import axios from "axios";
 import EditableTableList from "./editableTableList.component";
 import ToggleableTableForm from "./toggleableTableForm.component";
 // import monsterTable from "./monsterDataBase";
@@ -42,16 +42,14 @@ export default class UserDashboard extends Component {
     ]
   };
 
-  // componentDidMount() {
-  //   axios
-  //     .get("/business")
-  //     .then(response => {
-  //       this.setState({ business: response.data });
-  //     })
-  //     .catch(function(error) {
-  //       console.log(error);
-  //     });
-  // }
+  componentDidMount() {
+    axios
+      .get("http://localhost:4000/encountertable/")
+      .then(response => {
+        this.setState({ encTables: response.data });
+      })
+      .catch(e => console.log(e));
+  }
 
   // passed down as prop to ToggleableTableForm
   handleCreateFormSubmit = table => {
