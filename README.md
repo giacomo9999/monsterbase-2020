@@ -12,4 +12,6 @@ So then, right now I need to:
 
 12 Jan - Everything seems to be going smoothly. Building out React components for the front end.
 
+13 Feb - After a month of coding sidequests and non-coding stuff, I am back on this and adding back-end and databse functionality.
+
 
