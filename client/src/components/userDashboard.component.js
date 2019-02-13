@@ -17,9 +17,9 @@ export default class UserDashboard extends Component {
         regionType: "Desert",
         regionDifficulty: 2,
         regionMonstersAndFreq: [
-          [4, "Scorpion(Large)"],
+          [4, "Scorpion (Large)"],
           [9, "Pilgrim"],
-          [12, "Toad(Poisonous)"],
+          [12, "Toad (Poisonous)"],
           [15, "Nomad"],
           [20, "Pyrolisk"]
         ]
@@ -33,9 +33,9 @@ export default class UserDashboard extends Component {
           [3, "Bugbear"],
           [7, "Ogre"],
           [9, "Ochre Jelly"],
-          [11, "Tick(Giant)"],
+          [11, "Tick (Giant)"],
           [13, "Cyclopskin"],
-          [16, "Devil(Lemure)"],
+          [16, "Devil (Lemure)"],
           [20, "Symbiotic Jelly"]
         ]
       }
@@ -57,7 +57,7 @@ export default class UserDashboard extends Component {
   handleCreateFormSubmit = table => {
     console.log("UserDashboard creating new table for " + table.regionName);
     const newTable = this.createNewTable(table);
-    console.log("New table: ", newTable);
+    console.log("UD: New table: ", newTable);
     // added a callback to setState- so it logs the state *after* state updates.
     this.setState(
       { encTables: this.state.encTables.concat(newTable) },
@@ -73,8 +73,8 @@ export default class UserDashboard extends Component {
       regionName: attrs.regionName || "Table",
       id: uuidv1(),
       regionType: attrs.regionType || "Region Type",
-      regionDifficulty: attrs.regionType || 0,
-      regionMonstersAndFreq: []
+      regionDifficulty: attrs.regionDifficulty || 0,
+      regionMonstersAndFreq: [[-999, "Placeholder"]]
     };
   };
 

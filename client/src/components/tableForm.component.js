@@ -11,25 +11,31 @@ export default class TableForm extends Component {
   };
 
   handleRegionNameChange = e => {
+    // console.log(this.state);
     this.setState({ regionName: e.target.value });
   };
 
   handleRegionTypeChange = e => {
+    // console.log(this.state);
     this.setState({ regionType: e.target.value });
   };
 
   handleRegionDifficultyChange = e => {
+    // console.log(this.state);
     this.setState({ regionDifficulty: e.target.value });
   };
 
   // uses HandleFormSubmit from ToggleableTableForm
   handleSubmit = () => {
-    console.log("TableForm submitting table for " + this.state.regionName);
+    console.log(
+      "TableForm submitting table for " + this.state.regionName,
+      this.props.regionType
+    );
     this.props.onFormSubmit({
       id: this.props.id,
       regionName: this.state.regionName,
-      regionType: this.props.regionType,
-      regionDifficulty: this.props.regionDifficulty
+      regionType: this.state.regionType,
+      regionDifficulty: this.state.regionDifficulty
     });
   };
 

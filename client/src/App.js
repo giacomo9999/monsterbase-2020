@@ -26,8 +26,8 @@ import SignUpForm from "./components/signUpForm.component";
 const HomepageHeading = ({ mobile }) => (
   <Container text>
     <Image
-      src="/logo.png"
-      size="small"
+      src="/MBLogo-190127.svg"
+      size="huge"
       centered
       style={{
         marginBottom: "2em",
@@ -66,7 +66,6 @@ HomepageHeading.propTypes = {
   mobile: PropTypes.bool
 };
 
-
 class DesktopContainer extends Component {
   state = {};
 
@@ -93,9 +92,9 @@ class DesktopContainer extends Component {
               size="large"
             >
               <Container>
-                <Menu.Item position="left" as={Link} to="/">
-                  <h5>MONSTERBASE LOGO</h5>
-                </Menu.Item>
+                {/* <Menu.Item position="left" as={Link} to="/">
+                  <Image src="/MBLogo-190127.svg" size="small" centered />
+                </Menu.Item> */}
                 <Menu.Item position="right">
                   <Button
                     as={Link}

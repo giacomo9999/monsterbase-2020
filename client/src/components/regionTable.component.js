@@ -50,8 +50,3 @@ export default class RegionTable extends Component {
     );
   }
 }
-
-// const tables = this.props.tables.map(table => (
-//   <EditableTable
-//     key={table.id}
-//     id={table.id}
