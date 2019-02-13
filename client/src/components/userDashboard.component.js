@@ -55,15 +55,18 @@ export default class UserDashboard extends Component {
   handleCreateFormSubmit = table => {
     console.log("UserDashboard creating new table for " + table.regionName);
     // const newTable = this.createNewTable(table);
-    const newTable = this.state.encTables[0];
-    console.log("UD: New table: ", newTable);
+    // const newTable = this.state.encTables[2];
+    const newTable = {
+      regionName: "Plain Of The Standing Stones",
+      regionType: "Desert",
+      regionDifficulty: 2,
+      regionMonstersAndFreq: ["Scorpion(Giant)", "Pilgrim","Nomad","Pyrolisk"]
+    };
+    console.log("UserDashboard: New table: ", newTable);
 
     axios
       .post("http://localhost:4000/encountertable/add", newTable)
-      .then(res => console.log(res.data))
-      .catch(err => {
-        console.log("unable to save to database");
-      });
+      .then(res => console.log(res.data));
 
     // added a callback to setState- so it logs the state *after* state updates.
     this.setState(
