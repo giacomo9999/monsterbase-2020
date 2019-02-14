@@ -60,7 +60,13 @@ export default class UserDashboard extends Component {
       regionName: "Plain Of The Standing Stones",
       regionType: "Desert",
       regionDifficulty: 2,
-      regionMonstersAndFreq: ["Scorpion(Giant)", "Pilgrim","Nomad","Pyrolisk"]
+      regionMonstersAndFreq: [
+        [4, "Scorpion (Large)"],
+        [9, "Pilgrim"],
+        [12, "Toad (Poisonous)"],
+        [15, "Nomad"],
+        [20, "Pyrolisk"]
+      ]
     };
     console.log("UserDashboard: New table: ", newTable);
 

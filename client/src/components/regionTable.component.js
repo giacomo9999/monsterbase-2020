@@ -5,6 +5,7 @@ import { Card, Header, Table } from "semantic-ui-react";
 
 export default class RegionTable extends Component {
   render() {
+    console.log(this.props.regionMonstersAndFreq);
     const encounterList = this.props.regionMonstersAndFreq.map(
       (entry, index) => (
         <Table.Row key={index}>
