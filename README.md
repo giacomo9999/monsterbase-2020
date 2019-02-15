@@ -21,3 +21,5 @@ EDIT: Spoke too soon when I said "Successfully deployed." React keeps trying to 
 3:37 PM. I'm deleting the process PORT variable from the Heroku dashboard...will that work? NO IT DOES NOT.
 
 3:38 PM. Making sure that proxy value in package.json matches the port that the server is running on. (As per https://medium.freecodecamp.org/how-to-deploy-a-react-app-with-an-express-server-on-heroku-32244fe5a250)
+
+--
