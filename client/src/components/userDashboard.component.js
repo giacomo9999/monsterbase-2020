@@ -25,20 +25,20 @@ export default class UserDashboard extends Component {
   // passed down as prop to ToggleableTableForm
   handleCreateFormSubmit = table => {
     console.log("UserDashboard creating new table for " + table.regionName);
-    // const newTable = this.createNewTable(table);
-    const newTable = {
-      regionName: "Plain Of The Standing Stones",
-      id: uuidv1(),
-      regionType: "Desert",
-      regionDifficulty: 2,
-      regionMonstersAndFreq: [
-        { freq: 4, name: "Scorpion (Large)" },
-        { freq: 9, name: "Pilgrim" },
-        { freq: 12, name: "Toad (Poisonous)" },
-        { freq: 15, name: "Nomad" },
-        { freq: 20, name: "Pyrolisk" }
-      ]
-    };
+    const newTable = this.createNewTable(table);
+    // const newTable = {
+    //   regionName: "Plain Of The Standing Stones",
+    //   id: uuidv1(),
+    //   regionType: "Desert",
+    //   regionDifficulty: 2,
+    //   regionMonstersAndFreq: [
+    //     { freq: 4, name: "Scorpion (Large)" },
+    //     { freq: 9, name: "Pilgrim" },
+    //     { freq: 12, name: "Toad (Poisonous)" },
+    //     { freq: 15, name: "Nomad" },
+    //     { freq: 20, name: "Pyrolisk" }
+    //   ]
+    // };
     console.log("UserDashboard: New table: ", newTable);
 
     axios
@@ -61,7 +61,7 @@ export default class UserDashboard extends Component {
       id: uuidv1(),
       regionType: attrs.regionType || "Region Type",
       regionDifficulty: attrs.regionDifficulty || 0,
-      regionMonstersAndFreq: ["-999", "Placeholder"]
+      regionMonstersAndFreq: []
     };
   };
 

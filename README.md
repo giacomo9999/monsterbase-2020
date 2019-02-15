@@ -14,4 +14,4 @@ So then, right now I need to:
 
 13 Feb - After a month of coding sidequests and non-coding stuff, I am back on this and adding back-end and database functionality. For whatever reason, neither Postman nor Chrome can reach any endpoints with CORS enabled...I have no idea why. (EDIT: Line 21 in server.js was "app.use(cors)" instead of "app.use(cors());". I am an idiot.)
 
-
+15 Feb - Minimal back-end and database stuff set up and working OK.  Preparing to deploy to Heroku.
