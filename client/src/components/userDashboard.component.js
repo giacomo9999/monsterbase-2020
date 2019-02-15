@@ -15,7 +15,7 @@ export default class UserDashboard extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:4000/encountertable/")
+      .get("/encountertable")
       .then(response => {
         this.setState({ encTables: response.data });
       })
@@ -42,7 +42,7 @@ export default class UserDashboard extends Component {
     console.log("UserDashboard: New table: ", newTable);
 
     axios
-      .post("http://localhost:4000/encountertable/add", newTable)
+      .post("/encountertable/add", newTable)
       .then(res => console.log(res.data));
 
     // added a callback to setState- so it logs the state *after* state updates.
