@@ -7,7 +7,7 @@ const path = require("path");
 const EncounterTableRouter = require("./routes/EncounterTableRouter");
 const TestRouter = require("./routes/TestRouter");
 
-// const PORT = 4000;
+const port = process.env.PORT || 4000;
 require("dotenv").config();
 
 mongoose.connect(process.env.DB, { useNewUrlParser: true }).then(
@@ -32,6 +32,6 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
-app.listen(process.env.PORT, () =>
-  console.log("Server running on port " + process.env.PORT)
+app.listen(port, () =>
+  console.log("Server running on port " + port)
 );
