@@ -29,7 +29,7 @@ app.use("/encountertable", EncounterTableRouter);
 // app.get('/', (req, res) => res.send('Hello World!'))
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "build"));
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
 app.listen(process.env.PORT, () =>
