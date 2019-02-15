@@ -30,15 +30,3 @@ app.listen(process.env.PORT, () =>
   console.log("Server running on port " + process.env.PORT)
 );
 
-// Test server below works OK with the two 'cors' lines commented out--but with those two lines active, requests to the '/' endpoint -- either by Postman or a browser-- just don't get a response.
-
-// const express = require("express");
-// const app = express();
-// const port = 3000;
-
-// const cors = require("cors");
-// app.use(cors);
-
-// app.get("/", (req, res) => res.send("Hello World!"))
-
-// app.listen(port, () => console.log(`Example app listening on port ${port}!`));

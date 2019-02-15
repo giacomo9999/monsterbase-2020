@@ -10,36 +10,7 @@ const uuidv1 = require("uuid/v1");
 
 export default class UserDashboard extends Component {
   state = {
-    encTables: [
-      // {
-      //   regionName: "Plain Of The Standing Stones",
-      //   id: uuidv1(),
-      //   regionType: "Desert",
-      //   regionDifficulty: 2,
-      //   regionMonstersAndFreq: [
-      //     [4, "Scorpion (Large)"],
-      //     [9, "Pilgrim"],
-      //     [12, "Toad (Poisonous)"],
-      //     [15, "Nomad"],
-      //     [20, "Pyrolisk"]
-      //   ]
-      // },
-      // {
-      //   regionName: "Scarab Mound - Level 3",
-      //   id: uuidv1(),
-      //   regionType: "Dungeon Level",
-      //   regionDifficulty: 3,
-      //   regionMonstersAndFreq: [
-      //     [3, "Bugbear"],
-      //     [7, "Ogre"],
-      //     [9, "Ochre Jelly"],
-      //     [11, "Tick (Giant)"],
-      //     [13, "Cyclopskin"],
-      //     [16, "Devil (Lemure)"],
-      //     [20, "Symbiotic Jelly"]
-      //   ]
-      // }
-    ]
+    encTables: []
   };
 
   componentDidMount() {
@@ -55,17 +26,17 @@ export default class UserDashboard extends Component {
   handleCreateFormSubmit = table => {
     console.log("UserDashboard creating new table for " + table.regionName);
     // const newTable = this.createNewTable(table);
-    // const newTable = this.state.encTables[2];
     const newTable = {
       regionName: "Plain Of The Standing Stones",
+      id: uuidv1(),
       regionType: "Desert",
       regionDifficulty: 2,
       regionMonstersAndFreq: [
-        [4, "Scorpion (Large)"],
-        [9, "Pilgrim"],
-        [12, "Toad (Poisonous)"],
-        [15, "Nomad"],
-        [20, "Pyrolisk"]
+        { freq: 4, name: "Scorpion (Large)" },
+        { freq: 9, name: "Pilgrim" },
+        { freq: 12, name: "Toad (Poisonous)" },
+        { freq: 15, name: "Nomad" },
+        { freq: 20, name: "Pyrolisk" }
       ]
     };
     console.log("UserDashboard: New table: ", newTable);
