@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const path = require("path");
 const EncounterTableRouter = require("./routes/EncounterTableRouter");
 const TestRouter = require("./routes/TestRouter");
 
@@ -21,12 +22,16 @@ mongoose.connect(process.env.DB, { useNewUrlParser: true }).then(
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, "client", "build")));
 
 app.use("/test", TestRouter);
 app.use("/encountertable", EncounterTableRouter);
 // app.get('/', (req, res) => res.send('Hello World!'))
 
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build"));
+});
+
 app.listen(process.env.PORT, () =>
   console.log("Server running on port " + process.env.PORT)
 );
-
