@@ -5,12 +5,12 @@ import { Card, Header, Table } from "semantic-ui-react";
 
 export default class RegionTable extends Component {
   render() {
-    console.log(this.props.regionMonstersAndFreq);
+    console.log("Building list...", this.props.regionMonstersAndFreq);
     const encounterList = this.props.regionMonstersAndFreq.map(
       (entry, index) => (
         <Table.Row key={index}>
-          <Table.Cell>{entry[0]}</Table.Cell>
-          <Table.Cell>{entry[1]}</Table.Cell>
+          <Table.Cell>{entry.freq}</Table.Cell>
+          <Table.Cell>{entry.name}</Table.Cell>
         </Table.Row>
       )
     );
