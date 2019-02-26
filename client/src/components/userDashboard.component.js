@@ -48,7 +48,20 @@ export default class UserDashboard extends Component {
       id: uuidv1(),
       regionType: attrs.regionType || "Region Type",
       regionDifficulty: attrs.regionDifficulty || 0,
-      regionMonstersAndFreq: []
+      regionMonstersAndFreq: [
+        {
+          freq: 3,
+          name: "Test Monster A"
+        },
+        {
+          freq: 7,
+          name: "Test Monster B"
+        },
+        {
+          freq: 9,
+          name: "Test Monster C"
+        }
+      ]
     };
   };
 
