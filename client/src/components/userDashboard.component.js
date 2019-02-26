@@ -5,7 +5,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import EditableTableList from "./editableTableList.component";
 import ToggleableTableForm from "./toggleableTableForm.component";
-// import monsterTable from "./monsterDataBase";
+import monsterTable from "./monstersList.json";
 const uuidv1 = require("uuid/v1");
 
 export default class UserDashboard extends Component {
