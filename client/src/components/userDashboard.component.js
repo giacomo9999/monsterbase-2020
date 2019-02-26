@@ -41,8 +41,33 @@ export default class UserDashboard extends Component {
     );
   };
 
-  buildList = (habitat, difficulty) => {
-    console.log("List Params: ", habitat, difficulty);
+  getHP = hitDice => {
+    console.log("HD: ", hitDice);
+    
+    const hPArr = hitDice.split("d");
+    console.log("HP Arr: ", hPArr);
+
+    const hPOut = hPArr[0] * hPArr[1];
+    console.log(hPOut);
+    return hPOut;
+  };
+
+  buildList = (habitatName, difficulty) => {
+    console.log("List Params: ", habitatName, difficulty);
+    // const habList = monsterTable.filter(entry => entry.habitat.length > 30);
+    // monsterTable.forEach(entry => console.log(entry.habitat.length));
+    const filteredByHabitat = monsterTable.filter(
+      entry => entry.habitat !== null && entry.habitat.includes(habitatName)
+    );
+    console.log(filteredByHabitat);
+
+    const filteredByDifficulty = filteredByHabitat.filter(entry => {
+      const hitPoints = this.getHP(entry.hit_dice);
+      console.log(entry.name, hitPoints);
+      return hitPoints < difficulty * 10;
+    });
+    console.log(filteredByDifficulty);
+
     const subList = [
       "Test Monster Alpha",
       "Test Monster Beta",
