@@ -43,7 +43,7 @@ export default class UserDashboard extends Component {
 
   getHP = hitDice => {
     console.log("HD: ", hitDice);
-    
+
     const hPArr = hitDice.split("d");
     console.log("HP Arr: ", hPArr);
 
@@ -68,30 +68,25 @@ export default class UserDashboard extends Component {
     });
     console.log(filteredByDifficulty);
 
-    const subList = [
-      "Test Monster Alpha",
-      "Test Monster Beta",
-      "Test Monster Gamma"
-    ];
-    return subList;
+    return filteredByDifficulty;
   };
 
   createMonstersAndFreq = subListByHabAndDiff => {
-    const sampleTable = [
-      {
-        freq: 3,
-        name: subListByHabAndDiff[0]
-      },
-      {
-        freq: 7,
-        name: subListByHabAndDiff[1]
-      },
-      {
-        freq: 9,
-        name: subListByHabAndDiff[2]
-      }
-    ];
-    return sampleTable;
+    const tableOut = [];
+    subListByHabAndDiff.forEach((entry, index) => {
+      tableOut.push({ freq: index, name: entry.name });
+    });
+    // const sampleTable = [
+    //   {
+    //     freq: 3,
+    //     name: subListByHabAndDiff[0]
+    //   },
+    //   {
+    //     freq: 7,
+    //     name: subListByHabAndDiff[1]
+    //   }
+    // ];
+    return tableOut;
   };
 
   // Create new table - invoked by handleCreateFormSubmit
