@@ -29,7 +29,7 @@ export default class TableForm extends Component {
   handleSubmit = () => {
     console.log(
       "TableForm submitting table for " + this.state.regionName,
-      this.props.regionType,
+      this.state.regionType,
       this.props.id
     );
     this.props.onFormSubmit({

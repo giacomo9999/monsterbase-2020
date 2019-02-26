@@ -41,6 +41,34 @@ export default class UserDashboard extends Component {
     );
   };
 
+  buildList = (habitat, difficulty) => {
+    console.log("List Params: ", habitat, difficulty);
+    const subList = [
+      "Test Monster Alpha",
+      "Test Monster Beta",
+      "Test Monster Gamma"
+    ];
+    return subList;
+  };
+
+  createMonstersAndFreq = subListByHabAndDiff => {
+    const sampleTable = [
+      {
+        freq: 3,
+        name: subListByHabAndDiff[0]
+      },
+      {
+        freq: 7,
+        name: subListByHabAndDiff[1]
+      },
+      {
+        freq: 9,
+        name: subListByHabAndDiff[2]
+      }
+    ];
+    return sampleTable;
+  };
+
   // Create new table - invoked by handleCreateFormSubmit
   createNewTable = (attrs = {}) => {
     return {
@@ -48,20 +76,9 @@ export default class UserDashboard extends Component {
       id: uuidv1(),
       regionType: attrs.regionType || "Region Type",
       regionDifficulty: attrs.regionDifficulty || 0,
-      regionMonstersAndFreq: [
-        {
-          freq: 3,
-          name: "Test Monster A"
-        },
-        {
-          freq: 7,
-          name: "Test Monster B"
-        },
-        {
-          freq: 9,
-          name: "Test Monster C"
-        }
-      ]
+      regionMonstersAndFreq: this.createMonstersAndFreq(
+        this.buildList(attrs.regionType, attrs.regionDifficulty)
+      )
     };
   };
 
