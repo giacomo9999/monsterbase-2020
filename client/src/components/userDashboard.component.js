@@ -76,16 +76,6 @@ export default class UserDashboard extends Component {
     subListByHabAndDiff.forEach((entry, index) => {
       tableOut.push({ freq: index, name: entry.name });
     });
-    // const sampleTable = [
-    //   {
-    //     freq: 3,
-    //     name: subListByHabAndDiff[0]
-    //   },
-    //   {
-    //     freq: 7,
-    //     name: subListByHabAndDiff[1]
-    //   }
-    // ];
     return tableOut;
   };
 
