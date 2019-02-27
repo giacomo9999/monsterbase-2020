@@ -64,7 +64,10 @@ export default class UserDashboard extends Component {
     const filteredByDifficulty = filteredByHabitat.filter(entry => {
       const hitPoints = this.getHP(entry.hit_dice);
       console.log(entry.name, hitPoints);
-      return hitPoints < difficulty * 10;
+      return (
+        hitPoints > difficulty * difficulty &&
+        hitPoints < difficulty * difficulty * 1.5 + 10
+      );
     });
     console.log(filteredByDifficulty);
 
