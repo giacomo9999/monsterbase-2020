@@ -17,6 +17,7 @@ export default class EditableTable extends Component {
           id={this.props.id}
           regionType={this.props.regionType}
           regionDifficulty={this.props.regionDifficulty}
+          maxNumOfMonsters= {this.props.maxNumOfMonsters}
         />
       );
     } else {
@@ -27,6 +28,7 @@ export default class EditableTable extends Component {
           regionType={this.props.regionType}
           regionDifficulty={this.props.regionDifficulty}
           regionMonstersAndFreq={this.props.regionMonstersAndFreq}
+          maxNumOfMonsters= {this.props.maxNumOfMonsters}
         />
       );
     }

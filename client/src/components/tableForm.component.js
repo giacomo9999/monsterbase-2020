@@ -7,7 +7,8 @@ export default class TableForm extends Component {
   state = {
     regionName: this.props.regionName || "",
     regionType: this.props.regionType || "",
-    regionDifficulty: this.props.regionDifficulty || ""
+    regionDifficulty: this.props.regionDifficulty || "",
+    maxNumOfMonsters: this.props.maxNumOfMonsters || ""
   };
 
   handleRegionNameChange = e => {
@@ -25,6 +26,11 @@ export default class TableForm extends Component {
     this.setState({ regionDifficulty: e.target.value });
   };
 
+  handleMaxNumOfMonstersChange = e => {
+    // console.log(this.state);
+    this.setState({ maxNumOfMonsters: e.target.value });
+  };
+
   // uses HandleFormSubmit from ToggleableTableForm
   handleSubmit = () => {
     console.log(
@@ -36,7 +42,8 @@ export default class TableForm extends Component {
       id: this.props.id,
       regionName: this.state.regionName,
       regionType: this.state.regionType,
-      regionDifficulty: this.state.regionDifficulty
+      regionDifficulty: this.state.regionDifficulty,
+      maxNumOfMonsters: this.state.maxNumOfMonsters
     });
   };
 
@@ -75,6 +82,14 @@ export default class TableForm extends Component {
                 type="text"
                 value={this.state.regionDifficulty}
                 onChange={this.handleRegionDifficultyChange}
+              />
+            </div>
+            <div className="field">
+              <label>Max. Number Of Monsters In Table</label>
+              <input
+                type="text"
+                value={this.state.maxNumOfMonsters}
+                onChange={this.handleMaxNumOfMonstersChange}
               />
             </div>
           </div>
