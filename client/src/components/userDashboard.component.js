@@ -52,7 +52,7 @@ export default class UserDashboard extends Component {
     return hPOut;
   };
 
-  buildList = (habitatName, difficulty) => {
+  buildList = (habitatName, difficulty, maxNumOfMonsters) => {
     console.log("List Params: ", habitatName, difficulty);
 
     const filteredByHabitat = monsterTable.filter(
@@ -70,7 +70,14 @@ export default class UserDashboard extends Component {
     });
     console.log(filteredByDifficulty);
 
-    return filteredByDifficulty;
+    const arrOut = [];
+
+    for (let i = 0; i < maxNumOfMonsters; i += 1) {
+      console.log("here.");
+      arrOut.push(filteredByDifficulty[i]);
+    }
+
+    return arrOut;
   };
 
   createMonstersAndFreq = subListByHabAndDiff => {
@@ -89,7 +96,11 @@ export default class UserDashboard extends Component {
       regionType: attrs.regionType || "Region Type",
       regionDifficulty: attrs.regionDifficulty || 0,
       regionMonstersAndFreq: this.createMonstersAndFreq(
-        this.buildList(attrs.regionType, attrs.regionDifficulty)
+        this.buildList(
+          attrs.regionType,
+          attrs.regionDifficulty,
+          attrs.maxNumOfMonsters
+        )
       ),
       maxNumOfMonsters: attrs.maxNumOfMonsters || 5
     };
