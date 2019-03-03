@@ -5,7 +5,7 @@ import { Card, Header, Table } from "semantic-ui-react";
 
 export default class RegionTable extends Component {
   render() {
-    console.log("Building list...", this.props.regionMonstersAndFreq);
+    console.log("Building list...", this.props);
     const encounterList = this.props.regionMonstersAndFreq.map(
       (entry, index) => (
         <Table.Row key={index}>
@@ -40,7 +40,10 @@ export default class RegionTable extends Component {
           </Table>
         </Card.Content>
         <Card.Content extra>
-          <span className="right floated edit icon">
+          <span
+            className="right floated edit icon"
+            onClick={this.props.onEditClick}
+          >
             <i className="edit icon" />
           </span>
           <span className="right floated trash icon">

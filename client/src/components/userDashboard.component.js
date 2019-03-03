@@ -41,6 +41,34 @@ export default class UserDashboard extends Component {
     );
   };
 
+  handleEditFormSubmit = attrs => {
+    this.updateTable(attrs);
+  };
+
+  updateTable = attrs => {
+    this.setState({
+      encTables: this.state.encTables.map(table => {
+        if (table.id === attrs.id) {
+          return Object.assign({}, table, {
+            regionName: attrs.regionName,
+            regionType: attrs.regionType,
+            regionDifficulty: attrs.regionDifficulty,
+            regionMonstersAndFreq: this.createMonstersAndFreq(
+              this.buildList(
+                attrs.regionType,
+                attrs.regionDifficulty,
+                attrs.maxNumOfMonsters
+              )
+            ),
+            maxNumOfMonsters: attrs.maxNumOfMonsters
+          });
+        } else {
+          return table;
+        }
+      })
+    });
+  };
+
   getHP = hitDice => {
     console.log("HD: ", hitDice);
 
@@ -72,7 +100,11 @@ export default class UserDashboard extends Component {
 
     const arrOut = [];
 
-    for (let i = 0; i < maxNumOfMonsters; i += 1) {
+    for (
+      let i = 0;
+      i < filteredByDifficulty.length && i < maxNumOfMonsters;
+      i += 1
+    ) {
       console.log("here.");
       arrOut.push(filteredByDifficulty[i]);
     }
@@ -81,6 +113,7 @@ export default class UserDashboard extends Component {
   };
 
   createMonstersAndFreq = subListByHabAndDiff => {
+    console.log("SubList: ", subListByHabAndDiff);
     const tableOut = [];
     subListByHabAndDiff.forEach((entry, index) => {
       tableOut.push({ freq: index, name: entry.name });
@@ -111,7 +144,10 @@ export default class UserDashboard extends Component {
     return (
       <div className="ui three column centered grid">
         <div className="column">
-          <EditableTableList tables={this.state.encTables} />
+          <EditableTableList
+            tables={this.state.encTables}
+            onFormSubmit={this.handleEditFormSubmit}
+          />
           <ToggleableTableForm
             isOpen={false}
             onFormSubmit={this.handleCreateFormSubmit}
