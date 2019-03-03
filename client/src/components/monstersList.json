@@ -1570,7 +1570,7 @@
     "hit_dice": "3d10",
     "type": "beast",
     "frequency": "common",
-    "habitat": "steppe,savanna",
+    "habitat": null,
     "__v": 0
   },
   {
@@ -1834,7 +1834,7 @@
     "hit_dice": "3d10",
     "type": "beast",
     "frequency": "common",
-    "habitat": "steppe",
+    "habitat": null,
     "__v": 0
   },
   {
