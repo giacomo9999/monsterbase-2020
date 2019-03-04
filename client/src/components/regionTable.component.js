@@ -4,8 +4,12 @@ import React, { Component } from "react";
 import { Card, Header, Table } from "semantic-ui-react";
 
 export default class RegionTable extends Component {
+  handleDeleteClick = () => {
+    this.props.onDeleteClick(this.props.id);
+  };
+
   render() {
-    console.log("Building list...", this.props);
+    // console.log("Building list...", this.props);
     const encounterList = this.props.regionMonstersAndFreq.map(
       (entry, index) => (
         <Table.Row key={index}>
@@ -46,7 +50,10 @@ export default class RegionTable extends Component {
           >
             <i className="edit icon" />
           </span>
-          <span className="right floated trash icon">
+          <span
+            className="right floated trash icon"
+            onClick={this.handleDeleteClick}
+          >
             <i className="trash icon" />
           </span>
         </Card.Content>

@@ -54,6 +54,7 @@ export default class EditableTable extends Component {
           regionMonstersAndFreq={this.props.regionMonstersAndFreq}
           maxNumOfMonsters={this.props.maxNumOfMonsters}
           onEditClick={this.handleEditClick}
+          onDeleteClick={this.props.onDeleteClick}
         />
       );
     }

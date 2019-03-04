@@ -45,6 +45,18 @@ export default class UserDashboard extends Component {
     this.updateTable(attrs);
   };
 
+  handleDeleteClick = tableId => {
+    this.deleteTable(tableId);
+  };
+
+  deleteTable = tableId => {
+    console.log("Deleting table: ", tableId);
+    this.setState({
+      encTables: this.state.encTables.filter(t => t.id !== tableId)
+    });
+    console.log(this.state);
+  };
+
   updateTable = attrs => {
     this.setState({
       encTables: this.state.encTables.map(table => {
@@ -67,6 +79,7 @@ export default class UserDashboard extends Component {
         }
       })
     });
+    console.log(this.state);
   };
 
   getHP = hitDice => {
@@ -147,6 +160,7 @@ export default class UserDashboard extends Component {
           <EditableTableList
             tables={this.state.encTables}
             onFormSubmit={this.handleEditFormSubmit}
+            onDeleteClick={this.handleDeleteClick}
           />
           <ToggleableTableForm
             isOpen={false}

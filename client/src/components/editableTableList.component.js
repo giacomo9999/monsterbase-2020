@@ -16,6 +16,7 @@ export default class EditableTableList extends Component {
         regionMonstersAndFreq={table.regionMonstersAndFreq}
         maxNumOfMonsters={table.maxNumOfMonsters}
         onFormSubmit={this.props.onFormSubmit}
+        onDeleteClick={this.props.onDeleteClick}
       />
     ));
     return <div id="tables">{tables}</div>;
