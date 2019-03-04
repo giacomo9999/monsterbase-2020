@@ -5,7 +5,8 @@ import { Card, Header, Table } from "semantic-ui-react";
 
 export default class RegionTable extends Component {
   handleDeleteClick = () => {
-    this.props.onDeleteClick(this.props.id);
+    console.log("Table deleting ",this.props);
+    this.props.onDeleteClick(this.props._id);
   };
 
   render() {

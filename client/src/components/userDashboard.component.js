@@ -45,14 +45,20 @@ export default class UserDashboard extends Component {
     this.updateTable(attrs);
   };
 
-  handleDeleteClick = tableId => {
-    this.deleteTable(tableId);
+  handleDeleteClick = databaseId => {
+    console.log(databaseId);
+    this.deleteTable(databaseId);
+
+    axios
+      .get("/encountertable/delete/" + databaseId)
+      .then(console.log("Deleted from DB"))
+      .catch(err => console.log(err));
   };
 
   deleteTable = tableId => {
     console.log("Deleting table: ", tableId);
     this.setState({
-      encTables: this.state.encTables.filter(t => t.id !== tableId)
+      encTables: this.state.encTables.filter(t => t._id !== tableId)
     });
     console.log(this.state);
   };

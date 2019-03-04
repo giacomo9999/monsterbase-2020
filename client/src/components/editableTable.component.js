@@ -31,9 +31,11 @@ export default class EditableTable extends Component {
   };
 
   render() {
+    console.log("Table List Props: ", this.props);
     if (this.state.editFormOpen) {
       return (
         <TableForm
+          _id={this.props._id}
           regionName={this.props.regionName}
           // do we need ID at this point?
           id={this.props.id}
@@ -47,6 +49,7 @@ export default class EditableTable extends Component {
     } else {
       return (
         <Table
+          _id={this.props._id}
           id={this.props.id}
           regionName={this.props.regionName}
           regionType={this.props.regionType}

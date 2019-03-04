@@ -8,6 +8,7 @@ export default class EditableTableList extends Component {
     console.log("ETL - this.props.tables:", this.props.tables);
     const tables = this.props.tables.map(table => (
       <EditableTable
+        _id={table._id}
         key={table.id}
         id={table.id}
         regionName={table.regionName}

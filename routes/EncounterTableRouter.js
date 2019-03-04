@@ -14,6 +14,16 @@ EncounterTableRouter.route("/add").post((req, res) => {
     });
 });
 
+EncounterTableRouter.route("/delete/:id").get((req, res) => {
+  console.log("Request params: ", req.params.id);
+  EncounterTable.findByIdAndRemove({ _id: req.params.id }),
+    (err, table) => {
+      if (err) res.json(err);
+      else res.json("Successfully removed");
+    };
+});
+
+
 EncounterTableRouter.route("/").get((req, res) => {
   EncounterTable.find((err, encountertables) => {
     if (err) {
