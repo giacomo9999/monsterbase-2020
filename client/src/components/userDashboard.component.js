@@ -45,22 +45,17 @@ export default class UserDashboard extends Component {
     this.updateTable(attrs);
   };
 
+  // passed down as prop all the way to regionTable
   handleDeleteClick = databaseId => {
-    console.log(databaseId);
-    this.deleteTable(databaseId);
+    console.log("UserDashboard deleting table: ", databaseId);
+    this.setState({
+      encTables: this.state.encTables.filter(t => t._id !== databaseId)
+    });
 
     axios
       .get("/encountertable/delete/" + databaseId)
       .then(console.log("Deleted from DB"))
       .catch(err => console.log(err));
-  };
-
-  deleteTable = tableId => {
-    console.log("Deleting table: ", tableId);
-    this.setState({
-      encTables: this.state.encTables.filter(t => t._id !== tableId)
-    });
-    console.log(this.state);
   };
 
   updateTable = attrs => {
@@ -85,7 +80,7 @@ export default class UserDashboard extends Component {
         }
       })
     });
-    console.log(this.state);
+    console.log("Updating table: ", this.state);
   };
 
   getHP = hitDice => {
@@ -159,7 +154,7 @@ export default class UserDashboard extends Component {
   };
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <div className="ui three column centered grid">
         <div className="column">

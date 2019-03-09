@@ -31,7 +31,7 @@ export default class EditableTable extends Component {
   };
 
   render() {
-    console.log("Table List Props: ", this.props);
+    // console.log("Table List Props: ", this.props);
     if (this.state.editFormOpen) {
       return (
         <TableForm
