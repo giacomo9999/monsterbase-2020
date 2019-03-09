@@ -1,4 +1,4 @@
-// Child of ToggleableTableForm
+// Child of ToggleableTableForm or EditableTable
 
 import React, { Component } from "react";
 import { Button, Card, Header } from "semantic-ui-react";
@@ -36,6 +36,7 @@ export default class TableForm extends Component {
     console.log(
       "TableForm submitting table for " + this.state.regionName,
       this.state.regionType,
+      this.state.maxNumOfMonsters,
       this.props.id
     );
     this.props.onFormSubmit({
@@ -48,6 +49,8 @@ export default class TableForm extends Component {
   };
 
   render() {
+    // console.log("TableForm state: ", this.state);
+    // console.log("TableForm props: ", this.props);
     const submitText = this.props.id ? "Update" : "Create";
     return (
       <Card centered>

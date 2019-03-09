@@ -4,20 +4,21 @@ const EncounterTableRouter = express.Router();
 
 const EncounterTable = require("../models/EncounterTable");
 
+// "Add" route
 EncounterTableRouter.route("/add").post((req, res) => {
-  console.log(`Router: Attempting to add table ${req.params.id} to DB`);
+  // console.log("Router: adding",req.body)
   const encountertable = new EncounterTable(req.body);
   encountertable
     .save()
-    .then(encountertable => res.json("Table added successfully."))
+    .then(encountertable => res.json("Router says: Table added successfully"))
     .catch(err => {
       res.status(400).send("Unable to save to database.");
     });
 });
 
-// define delete route
+// "Delete" route
 EncounterTableRouter.route("/delete/:id").get((req, res) => {
-  console.log(`Router: Attempting to delete table XXX from DB`);
+  console.log(`Router: Attempting to delete table ${req.params.id} from DB`);
   EncounterTable.findByIdAndRemove({ _id: req.params.id }, (err, encTable) => {
     if (err) {
       res.json(err);
@@ -27,6 +28,32 @@ EncounterTableRouter.route("/delete/:id").get((req, res) => {
   });
 });
 
+// "Update" route -
+EncounterTableRouter.route("/update/:id").post((req, res) => {
+  console.log(`Router: Attempting to update table ${req.params.id} on DB`);
+  EncounterTable.findById(req.params.id, (err, encTable) => {
+    if (!encTable) {
+      res.status(404).send("MonsterBase: Table not found.");
+    } else {
+      encTable.regionName = req.body.regionName;
+      encTable.regionType = req.body.regionType;
+      encTable.regionDifficulty = req.body.regionDifficulty;
+      encTable.regionMonstersAndFreq = req.body.regionMonstersAndFreq;
+      encTable.maxNumOfMonsters = req.body.maxNumOfMonsters;
+
+      encTable
+        .save()
+        .then(encTable => {
+          res.json("Update complete.");
+        })
+        .catch(err =>
+          res.status(400).send("MonsterBase: Unable to update the MB database.")
+        );
+    }
+  });
+});
+
+// "Show all" route
 EncounterTableRouter.route("/").get((req, res) => {
   EncounterTable.find((err, encountertables) => {
     if (err) {

@@ -59,6 +59,7 @@ export default class UserDashboard extends Component {
   };
 
   updateTable = attrs => {
+    console.log("UserDashboard updating table: ",attrs);
     this.setState({
       encTables: this.state.encTables.map(table => {
         if (table.id === attrs.id) {
@@ -80,37 +81,41 @@ export default class UserDashboard extends Component {
         }
       })
     });
-    console.log("Updating table: ", this.state);
+
+    axios
+      .post("/encountertable/update/", attrs)
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err));
   };
 
   getHP = hitDice => {
-    console.log("HD: ", hitDice);
+    // console.log("HD: ", hitDice);
 
     const hPArr = hitDice.split("d");
-    console.log("HP Arr: ", hPArr);
+    // console.log("HP Arr: ", hPArr);
 
     const hPOut = hPArr[0] * hPArr[1];
-    console.log(hPOut);
+    // console.log(hPOut);
     return hPOut;
   };
 
   buildList = (habitatName, difficulty, maxNumOfMonsters) => {
-    console.log("List Params: ", habitatName, difficulty);
+    // console.log("List Params: ", habitatName, difficulty);
 
     const filteredByHabitat = monsterTable.filter(
       entry => entry.habitat !== null && entry.habitat.includes(habitatName)
     );
-    console.log(filteredByHabitat);
+    // console.log(filteredByHabitat);
 
     const filteredByDifficulty = filteredByHabitat.filter(entry => {
       const hitPoints = this.getHP(entry.hit_dice);
-      console.log(entry.name, hitPoints);
+      // console.log(entry.name, hitPoints);
       return (
         hitPoints > difficulty * difficulty &&
         hitPoints < difficulty * difficulty * 1.5 + 10
       );
     });
-    console.log(filteredByDifficulty);
+    // console.log(filteredByDifficulty);
 
     const arrOut = [];
 
@@ -119,7 +124,7 @@ export default class UserDashboard extends Component {
       i < filteredByDifficulty.length && i < maxNumOfMonsters;
       i += 1
     ) {
-      console.log("here.");
+      // console.log("here.");
       arrOut.push(filteredByDifficulty[i]);
     }
 
@@ -127,7 +132,7 @@ export default class UserDashboard extends Component {
   };
 
   createMonstersAndFreq = subListByHabAndDiff => {
-    console.log("SubList: ", subListByHabAndDiff);
+    // console.log("SubList: ", subListByHabAndDiff);
     const tableOut = [];
     subListByHabAndDiff.forEach((entry, index) => {
       tableOut.push({ freq: index, name: entry.name });
