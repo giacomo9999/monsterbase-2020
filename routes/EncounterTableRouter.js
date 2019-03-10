@@ -6,8 +6,8 @@ const EncounterTable = require("../models/EncounterTable");
 
 // "Add" route
 EncounterTableRouter.route("/add").post((req, res) => {
-  console.log("Router: adding new table: ", req.body);
   const encountertable = new EncounterTable(req.body);
+  console.log("Router: adding new table: ", encountertable);
   encountertable
     .save()
     .then(encountertable => res.json("Router says: Table added successfully"))
@@ -38,6 +38,8 @@ EncounterTableRouter.route("/update/:id").post((req, res) => {
     if (!encTable) {
       res.status(404).send("MonsterBase: Table not found.");
     } else {
+      // encTable = encTable.toObject();
+
       encTable.regionName = req.body.regionName;
       encTable.regionType = req.body.regionType;
       encTable.regionDifficulty = req.body.regionDifficulty;

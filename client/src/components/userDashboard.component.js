@@ -81,6 +81,9 @@ export default class UserDashboard extends Component {
         }
       })
     });
+    attrs.maxNumOfMonsters = parseInt(attrs.maxNumOfMonsters);
+    attrs.maxNumOfMonsters = parseInt(attrs.maxNumOfMonsters);
+    console.log("Preparing attrs for DB: ", attrs);
 
     axios
       .post("/encountertable/update/" + attrs._id, attrs)

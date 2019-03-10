@@ -50,8 +50,8 @@ export default class TableForm extends Component {
   };
 
   render() {
-    console.log("TableForm state: ", this.state);
-    console.log("TableForm props: ", this.props);
+    // console.log("TableForm state: ", this.state);
+    // console.log("TableForm props: ", this.props);
     const submitText = this.props.id ? "Update" : "Create";
     return (
       <Card centered>
