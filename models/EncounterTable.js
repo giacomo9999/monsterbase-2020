@@ -8,10 +8,9 @@ const EncounterTable = new Schema(
     regionName: { type: String },
     id: { type: String },
     regionType: { type: String },
+    maxNumOfMonsters: { type: Number },
     regionDifficulty: { type: Number },
-    maxNumberOfMonsters: { type: Number },
-    regionMonstersAndFreq: { type: [FreqAndNameSchema] },
-    
+    regionMonstersAndFreq: { type: [FreqAndNameSchema] }
   },
   { collection: "encounter_tables" }
 );

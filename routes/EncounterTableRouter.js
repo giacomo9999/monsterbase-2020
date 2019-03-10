@@ -4,14 +4,23 @@ const EncounterTableRouter = express.Router();
 
 const EncounterTable = require("../models/EncounterTable");
 
-
 // "Add" route
 EncounterTableRouter.route("/add").post((req, res) => {
-  const encountertable = new EncounterTable(req.body);
-  console.log("Router: adding new table: ", encountertable);
-  encountertable
+  // res.send(req.body);
+
+  let encTable = new EncounterTable({
+    id: req.body.id,
+    regionName: req.body.regionName,
+    regionType: req.body.regionType,
+    maxNumOfMonsters: req.body.maxNumOfMonsters,
+    regionDifficulty: req.body.regionDifficulty,
+    regionMonstersAndFreq: req.body.regionMonstersAndFreq
+  });
+  console.log("Router: adding new table: ", encTable);
+
+  encTable
     .save()
-    .then(encountertable => res.json("Router says: Table added successfully"))
+    .then(encTable => res.json("Router says: Table added successfully"))
     .catch(err => {
       res.status(400).send("Unable to save to database.");
     });
