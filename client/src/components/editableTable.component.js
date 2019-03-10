@@ -18,6 +18,7 @@ export default class EditableTable extends Component {
   };
 
   handleSubmit = table => {
+    console.log("Editable Table submitting edited table: ", table);
     this.props.onFormSubmit(table);
     this.closeForm();
   };

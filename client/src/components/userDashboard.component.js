@@ -59,7 +59,7 @@ export default class UserDashboard extends Component {
   };
 
   updateTable = attrs => {
-    console.log("UserDashboard updating table: ",attrs);
+    console.log("UserDashboard updating table: ", attrs);
     this.setState({
       encTables: this.state.encTables.map(table => {
         if (table.id === attrs.id) {
@@ -83,7 +83,7 @@ export default class UserDashboard extends Component {
     });
 
     axios
-      .post("/encountertable/update/", attrs)
+      .post("/encountertable/update/" + attrs._id, attrs)
       .then(res => console.log(res.data))
       .catch(err => console.log(err));
   };

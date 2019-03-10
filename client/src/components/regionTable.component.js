@@ -10,7 +10,7 @@ export default class RegionTable extends Component {
   };
 
   render() {
-    // console.log("Building list...", this.props);
+    // console.log("Building table list...", this.props);
     const encounterList = this.props.regionMonstersAndFreq.map(
       (entry, index) => (
         <Table.Row key={index}>

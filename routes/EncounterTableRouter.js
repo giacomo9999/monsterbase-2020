@@ -6,7 +6,7 @@ const EncounterTable = require("../models/EncounterTable");
 
 // "Add" route
 EncounterTableRouter.route("/add").post((req, res) => {
-  // console.log("Router: adding",req.body)
+  console.log("Router: adding new table: ", req.body);
   const encountertable = new EncounterTable(req.body);
   encountertable
     .save()
@@ -55,6 +55,7 @@ EncounterTableRouter.route("/update/:id").post((req, res) => {
 
 // "Show all" route
 EncounterTableRouter.route("/").get((req, res) => {
+  console.log("Router: showing all tables.");
   EncounterTable.find((err, encountertables) => {
     if (err) {
       console.log(err);

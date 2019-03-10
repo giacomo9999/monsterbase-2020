@@ -40,6 +40,7 @@ export default class TableForm extends Component {
       this.props.id
     );
     this.props.onFormSubmit({
+      _id:this.props._id,
       id: this.props.id,
       regionName: this.state.regionName,
       regionType: this.state.regionType,

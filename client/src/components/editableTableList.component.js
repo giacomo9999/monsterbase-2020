@@ -7,7 +7,7 @@ export default class EditableTableList extends Component {
   render() {
     // console.log("ETL - this.props.tables:", this.props.tables);
     const tables = this.props.tables.map(table => {
-      console.log("ETL says: ", table.maxNumOfMonsters);
+      console.log("ETL says maxNumOfMonsters is: ", table.maxNumOfMonsters);
       return (
         <EditableTable
           _id={table._id}
