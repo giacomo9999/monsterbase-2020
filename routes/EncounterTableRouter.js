@@ -4,6 +4,7 @@ const EncounterTableRouter = express.Router();
 
 const EncounterTable = require("../models/EncounterTable");
 
+
 // "Add" route
 EncounterTableRouter.route("/add").post((req, res) => {
   const encountertable = new EncounterTable(req.body);

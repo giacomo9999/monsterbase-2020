@@ -24,7 +24,6 @@ export default class UserDashboard extends Component {
 
   // passed down as prop to ToggleableTableForm
   handleCreateFormSubmit = table => {
-    console.log("UserDashboard creating new table for " + table.regionName);
     const newTable = this.createNewTable(table);
     console.log("UserDashboard: New table: ", newTable);
 

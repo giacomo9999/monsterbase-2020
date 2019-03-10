@@ -11,19 +11,19 @@ export default class ToggleableTableForm extends Component {
 
   // passed to Button; opens form
   handleFormOpen = () => {
-    console.log("TTF opening form.");
+    // console.log("TTF opening form.");
     this.setState({ isOpen: true });
   };
 
   // passed to TableForm; closes form
   handleFormClose = () => {
-    console.log("TTF closing form.");
+    // console.log("TTF closing form.");
     this.setState({ isOpen: false });
   };
 
   // passed to TableForm; submits table data and closes form
   handleFormSubmit = table => {
-    console.log("TTF handling form submission for " + table);
+    // console.log("TTF handling form submission for " + table);
     this.props.onFormSubmit(table);
     this.setState({ isOpen: false });
   };
