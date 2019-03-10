@@ -7,8 +7,8 @@ export default class TableForm extends Component {
   state = {
     regionName: this.props.regionName || "",
     regionType: this.props.regionType || "",
-    regionDifficulty: this.props.regionDifficulty || "",
-    maxNumOfMonsters: this.props.maxNumOfMonsters || ""
+    regionDifficulty: this.props.regionDifficulty || 0,
+    maxNumOfMonsters: this.props.maxNumOfMonsters || 0,
   };
 
   handleRegionNameChange = e => {
@@ -50,8 +50,8 @@ export default class TableForm extends Component {
   };
 
   render() {
-    // console.log("TableForm state: ", this.state);
-    // console.log("TableForm props: ", this.props);
+    console.log("TableForm state: ", this.state);
+    console.log("TableForm props: ", this.props);
     const submitText = this.props.id ? "Update" : "Create";
     return (
       <Card centered>

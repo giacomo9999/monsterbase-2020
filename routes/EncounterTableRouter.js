@@ -30,7 +30,10 @@ EncounterTableRouter.route("/delete/:id").get((req, res) => {
 
 // "Update" route -
 EncounterTableRouter.route("/update/:id").post((req, res) => {
-  console.log(`Router: Attempting to update table ${req.params.id} on DB`);
+  console.log(
+    `Router: Attempting to update table ${req.params.id} on DB:`,
+    req.body
+  );
   EncounterTable.findById(req.params.id, (err, encTable) => {
     if (!encTable) {
       res.status(404).send("MonsterBase: Table not found.");
@@ -41,10 +44,12 @@ EncounterTableRouter.route("/update/:id").post((req, res) => {
       encTable.regionMonstersAndFreq = req.body.regionMonstersAndFreq;
       encTable.maxNumOfMonsters = req.body.maxNumOfMonsters;
 
+      console.log("DB: Attempting to save: ", encTable);
+
       encTable
         .save()
         .then(encTable => {
-          res.json("Update complete.");
+          res.json("Router: Table update complete.");
         })
         .catch(err =>
           res.status(400).send("MonsterBase: Unable to update the MB database.")
