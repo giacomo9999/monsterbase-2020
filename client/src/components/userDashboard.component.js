@@ -59,6 +59,15 @@ export default class UserDashboard extends Component {
 
   updateTable = attrs => {
     console.log("UserDashboard updating table: ", attrs);
+
+    attrs.regionMonstersAndFreq = this.createMonstersAndFreq(
+      this.buildList(
+        attrs.regionType,
+        attrs.regionDifficulty,
+        attrs.maxNumOfMonsters
+      )
+    );
+
     this.setState({
       encTables: this.state.encTables.map(table => {
         if (table.id === attrs.id) {
@@ -66,13 +75,7 @@ export default class UserDashboard extends Component {
             regionName: attrs.regionName,
             regionType: attrs.regionType,
             regionDifficulty: attrs.regionDifficulty,
-            regionMonstersAndFreq: this.createMonstersAndFreq(
-              this.buildList(
-                attrs.regionType,
-                attrs.regionDifficulty,
-                attrs.maxNumOfMonsters
-              )
-            ),
+            regionMonstersAndFreq: attrs.regionMonstersAndFreq,
             maxNumOfMonsters: attrs.maxNumOfMonsters
           });
         } else {
@@ -80,7 +83,7 @@ export default class UserDashboard extends Component {
         }
       })
     });
-    attrs.maxNumOfMonsters = parseInt(attrs.maxNumOfMonsters);
+
     attrs.maxNumOfMonsters = parseInt(attrs.maxNumOfMonsters);
     console.log("Preparing attrs for DB: ", attrs);
 

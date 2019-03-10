@@ -48,7 +48,6 @@ EncounterTableRouter.route("/update/:id").post((req, res) => {
     if (!encTable) {
       res.status(404).send("MonsterBase: Table not found.");
     } else {
-      // encTable = encTable.toObject();
 
       encTable.regionName = req.body.regionName;
       encTable.regionType = req.body.regionType;
