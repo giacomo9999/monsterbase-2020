@@ -92,6 +92,7 @@ export default class TableForm extends Component {
                   <option value="steppe">Steppe</option>
                   <option value="swamp">Swamp</option>
                   <option value="underground">Underground</option>
+                  <option value="water">Water</option>
                 </select>
               </label>
             </div>

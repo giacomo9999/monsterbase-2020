@@ -116,7 +116,7 @@ export default class UserDashboard extends Component {
       const hitPoints = this.getHP(entry.hit_dice);
       // console.log(entry.name, hitPoints);
       return (
-        hitPoints > difficulty * difficulty &&
+        hitPoints > (difficulty * difficulty)*.5 &&
         hitPoints < difficulty * difficulty * 1.5 + 10
       );
     });
