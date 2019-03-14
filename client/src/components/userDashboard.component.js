@@ -116,7 +116,7 @@ export default class UserDashboard extends Component {
       const hitPoints = this.getHP(entry.hit_dice);
       // console.log(entry.name, hitPoints);
       return (
-        hitPoints > (difficulty * difficulty)*.5 &&
+        hitPoints > difficulty * difficulty * 0.5 &&
         hitPoints < difficulty * difficulty * 1.5 + 10
       );
     });
@@ -139,9 +139,31 @@ export default class UserDashboard extends Component {
   createMonstersAndFreq = subListByHabAndDiff => {
     // console.log("SubList: ", subListByHabAndDiff);
     const tableOut = [];
+    const weightedTableOut = [];
+    let weightedFreqTotal = 0;
     subListByHabAndDiff.forEach((entry, index) => {
+      const freqWeights = {
+        common: 65,
+        uncommon: 20,
+        rare: 11,
+        "very rare": 4
+      };
       tableOut.push({ freq: index, name: entry.name });
+      weightedTableOut.push({
+        freq: freqWeights[entry.frequency],
+        name: entry.name
+      });
+      weightedFreqTotal += freqWeights[entry.frequency];
     });
+
+    console.log(
+      `Weighted Freq Total: ${weightedFreqTotal}  Multiplier: ${100 /
+        weightedFreqTotal}`
+    );
+    weightedTableOut.forEach(entry => {
+      entry.freq = Math.round(entry.freq * (100 / weightedFreqTotal));
+    });
+    console.log(weightedTableOut);
     return tableOut;
   };
 
