@@ -1,14 +1,14 @@
 // Child of ToggleableTableForm or EditableTable
 
 import React, { Component } from "react";
-import { Button, Card, Header } from "semantic-ui-react";
+import { Button, Card, Header, Dropdown } from "semantic-ui-react";
 
 export default class TableForm extends Component {
   state = {
     regionName: this.props.regionName || "",
     regionType: this.props.regionType || "",
     regionDifficulty: this.props.regionDifficulty || 0,
-    maxNumOfMonsters: this.props.maxNumOfMonsters || 0,
+    maxNumOfMonsters: this.props.maxNumOfMonsters || 0
   };
 
   handleRegionNameChange = e => {
@@ -40,7 +40,7 @@ export default class TableForm extends Component {
       this.props.id
     );
     this.props.onFormSubmit({
-      _id:this.props._id,
+      _id: this.props._id,
       id: this.props.id,
       regionName: this.state.regionName,
       regionType: this.state.regionType,
@@ -73,12 +73,27 @@ export default class TableForm extends Component {
               />
             </div>
             <div className="field">
-              <label>Type</label>
-              <input
-                type="text"
-                value={this.state.regionType}
-                onChange={this.handleRegionTypeChange}
-              />
+              <label>
+                Region Type:
+                <select
+                  value={this.state.regionType}
+                  onChange={this.handleRegionTypeChange}
+                >
+                  <option value="desert">Desert</option>
+                  <option value="forest">Forest</option>
+                  <option value="frigid">Frigid</option>
+                  <option value="hills">Hills</option>
+                  <option value="jungle">Jungle</option>
+                  <option value="mountain">Mountain</option>
+                  <option value="outer plane">Outer Plane</option>
+                  <option value="savanna">Savanna</option>
+                  <option value="settlement">Settlement</option>
+                  <option value="shoreline">Shoreline</option>
+                  <option value="steppe">Steppe</option>
+                  <option value="swamp">Swamp</option>
+                  <option value="underground">Underground</option>
+                </select>
+              </label>
             </div>
             <div className="field">
               <label>Difficulty</label>
