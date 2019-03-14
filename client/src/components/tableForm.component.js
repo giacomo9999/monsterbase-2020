@@ -1,7 +1,7 @@
 // Child of ToggleableTableForm or EditableTable
 
 import React, { Component } from "react";
-import { Button, Card, Header, Dropdown } from "semantic-ui-react";
+import { Button, Card, Header } from "semantic-ui-react";
 
 export default class TableForm extends Component {
   state = {
@@ -96,12 +96,24 @@ export default class TableForm extends Component {
               </label>
             </div>
             <div className="field">
-              <label>Difficulty</label>
-              <input
-                type="text"
-                value={this.state.regionDifficulty}
-                onChange={this.handleRegionDifficultyChange}
-              />
+              <label>
+                Region Difficulty:
+                <select
+                  value={this.state.regionDifficulty}
+                  onChange={this.handleRegionDifficultyChange}
+                >
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+              </label>
             </div>
             <div className="field">
               <label>Max. Number Of Monsters In Table</label>
