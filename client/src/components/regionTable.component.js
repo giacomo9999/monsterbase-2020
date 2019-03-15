@@ -36,7 +36,7 @@ export default class RegionTable extends Component {
           <Table striped>
             <Table.Header>
               <Table.Row>
-                <Table.HeaderCell>d20</Table.HeaderCell>
+                <Table.HeaderCell>d%</Table.HeaderCell>
                 <Table.HeaderCell>Monster</Table.HeaderCell>
               </Table.Row>
             </Table.Header>

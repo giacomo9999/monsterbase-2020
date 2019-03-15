@@ -160,11 +160,25 @@ export default class UserDashboard extends Component {
       `Weighted Freq Total: ${weightedFreqTotal}  Multiplier: ${100 /
         weightedFreqTotal}`
     );
+    let freqCounter = 0;
+
     weightedTableOut.forEach(entry => {
       entry.freq = Math.round(entry.freq * (100 / weightedFreqTotal));
+      freqCounter += entry.freq;
+      entry.freq = freqCounter;
+      console.log(freqCounter);
     });
+
+    let lowNum = "01";
+    let highNum;
+    weightedTableOut.forEach(entry => {
+      highNum = entry.freq;
+      entry.freq = lowNum + "-" + highNum.toString();
+      lowNum = highNum + 1;
+    });
+
     console.log(weightedTableOut);
-    return tableOut;
+    return weightedTableOut;
   };
 
   // Create new table - invoked by handleCreateFormSubmit

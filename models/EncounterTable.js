@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const FreqAndNameSchema = new Schema({ freq: Number, name: String });
+const FreqAndNameSchema = new Schema({ freq: String, name: String });
 
 const EncounterTable = new Schema(
   {
