@@ -169,11 +169,29 @@ export default class UserDashboard extends Component {
       console.log(freqCounter);
     });
 
-    let lowNum = "01";
+    let lowNum = 1;
+    let lowStr;
     let highNum;
-    weightedTableOut.forEach(entry => {
+    let highStr;
+    weightedTableOut.forEach((entry, index) => {
       highNum = entry.freq;
-      entry.freq = lowNum + "-" + highNum.toString();
+
+      if (highNum < 10) {
+        highStr = "0" + highNum.toString();
+      } else {
+        highStr = highNum.toString();
+      }
+
+      if (index === weightedTableOut.length - 1) {
+        highStr = "00";
+      }
+
+      if (lowNum < 10) {
+        lowStr = "0" + lowNum.toString();
+      } else {
+        lowStr = lowNum.toString();
+      }
+      entry.freq = lowStr + "-" + highStr;
       lowNum = highNum + 1;
     });
 
