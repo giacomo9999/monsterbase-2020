@@ -1,7 +1,1 @@
-DEPLOYED VERSION: https://monsterbase-190215.herokuapp.com/
-
-10 Mar 2019 - all basic functionality working from database to front end.
-
-14 Mar 2019 - Preparing to clean up interface:
-    1. Put "region type" and "difiiculty" into pull-dwon menus rather than text boxes.
-    2. Adjust encounters by monster frequency and normalize to 100.
+Using Semantic-UI to style the original MonsterBase proved to be a gigantic nightmare, so I'm rebuilding the entire thing using vanilla CSS.  This README will be updated when the new version hs been succesfully deployed (hopefully soon.)

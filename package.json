@@ -24,12 +24,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/giacomo9999/MonsterBase_Semantic_UI.git"
+    "url": "git+https://github.com/giacomo9999/monsterbase-2020.git"
   },
   "author": "Jim G",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/giacomo9999/MonsterBase_Semantic_UI/issues"
+    "url": "https://github.com/giacomo9999/monsterbase-2020.git/issues"
   },
-  "homepage": "https://github.com/giacomo9999/MonsterBase_Semantic_UI#readme"
+  "homepage": "https://github.com/giacomo9999/monsterbase-2020.git#readme"
 }
